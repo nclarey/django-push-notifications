@@ -111,6 +111,7 @@ async def _apns_send(
 	priority=None,
 	expiration=None,
 	collapse_id=None,
+	apns_topic=None,
 	**kwargs,
 ):
 	"""Make calls to APNs for each device token (registration_id) provided.
@@ -142,6 +143,7 @@ async def _apns_send(
 				time_to_live=time_to_live,
 				priority=priority,
 				collapse_key=collapse_id,
+				apns_topic=apns_topic
 			)
 		)
 		coro_registration_ids[asyncio.create_task(coro)] = registration_id
