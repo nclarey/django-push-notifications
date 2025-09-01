@@ -426,7 +426,7 @@ async def _send_bulk_request(
 
 async def _send_request(apns, request):
 	try:
-		res = await asyncio.wait_for(apns.send_notification(request), timeout=1)
+		res = await asyncio.wait_for(apns.send_notification(request), timeout=10)
 		return request.device_token, res
 	except asyncio.TimeoutError:
 		return request.device_token, NotificationResult(
